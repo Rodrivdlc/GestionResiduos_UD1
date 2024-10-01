@@ -2,46 +2,24 @@ package com.example.gestionresiduos_ud1
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.gestionresiduos_ud1.ui.theme.GestionResiduos_UD1Theme
+import android.widget.ImageButton
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            GestionResiduos_UD1Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
-        }
-    }
-}
+        setContentView(R.layout.activity_main)
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+        val point1: ImageButton = findViewById(R.id.point1)
+        val point2: ImageButton = findViewById(R.id.point2)
+        val point3: ImageButton = findViewById(R.id.point3)
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    GestionResiduos_UD1Theme {
-        Greeting("Android")
+        val points = listOf(
+            Pair(point1, "Punto de recogida 1"),
+            Pair(point2, "Punto de recogida 2"),
+            Pair(point3, "Punto de recogida 3")
+        )
+
+        val puntosRecogida = PuntosRecogida(this)
+        puntosRecogida.setupPoints(points)
     }
 }
