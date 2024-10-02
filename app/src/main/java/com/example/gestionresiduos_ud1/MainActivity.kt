@@ -3,14 +3,16 @@ package com.example.gestionresiduos_ud1
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Card
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -21,6 +23,16 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.Color
+
+
+val GreenNeutral = Color(0xFFB7E061)
+val suave = Color(0xFFF6D5D5)
 
 
 class MainActivity : ComponentActivity() {
@@ -36,13 +48,32 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun App() {
-    var currentScreen by remember { mutableStateOf(com.example.gestionresiduos_ud1.Screen.PersonalWasteStatistics) }
+    var currentScreen by remember { mutableStateOf(Screen.PersonalWasteStatistics) }
 
-    Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-        when (currentScreen) {
-            com.example.gestionresiduos_ud1.Screen.PersonalWasteStatistics -> PersonalWasteStatisticsScreen(
-                modifier = Modifier.padding(innerPadding)
+    Scaffold(modifier = Modifier
+        .fillMaxSize()
+        .background(GreenNeutral),
+        topBar = {
+            TopAppBar(
+            title = {
+                Box(
+                modifier = Modifier.fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ) {
+                Text("Estadísticas")
+            }
+                 },
+            colors = TopAppBarDefaults.smallTopAppBarColors(
+                containerColor = GreenNeutral,
             )
+        ) }) { innerPadding ->
+        Column(modifier = Modifier.padding(innerPadding).background(suave)) {
+            Spacer(modifier = Modifier.height(16.dp))
+            when (currentScreen) {
+                Screen.PersonalWasteStatistics -> PersonalWasteStatisticsScreen(
+                    modifier = Modifier.padding(innerPadding)
+                )
+            }
         }
     }
 }
@@ -54,13 +85,19 @@ enum class Screen {
 
 @Composable
 fun PersonalWasteStatisticsScreen(modifier: Modifier = Modifier) {
-    Column(modifier = Modifier.padding(horizontal = 16.dp , vertical = 16.dp)) {
+
+
+    Column(modifier = Modifier
+        .padding(horizontal = 16.dp, vertical = 16.dp)
+        .background(GreenNeutral)) {
         Text("Estadísticas Personales", style = MaterialTheme.typography.headlineMedium)
+
 
         Card(modifier = Modifier
             .fillMaxWidth()
             .height(200.dp)
-            .padding(8.dp)) {
+            .padding(8.dp),
+            colors = CardDefaults.cardColors(containerColor = suave)) {
 
             // Aquí puedes usar una biblioteca de gráficos como MPAndroidChart para crear un gráfico real
 
@@ -72,18 +109,19 @@ fun PersonalWasteStatisticsScreen(modifier: Modifier = Modifier) {
 
             Card(modifier = Modifier
                 .fillMaxWidth()
-                .padding(8.dp)
-            )    {
+                .height(200.dp)
+                .padding(8.dp),
+                colors = CardDefaults.cardColors(containerColor = suave))   {
                 Column(modifier = Modifier.padding(16.dp)) {
 
-                    Text("Tarjeta de estadística 1" , style = MaterialTheme.typography.titleMedium)
-                    Text("valor:  " , style = MaterialTheme.typography.bodyMedium)
+                    Text("Residuos Reciclados" , style = MaterialTheme.typography.titleMedium)
+                    Text("valor: 25kg (esta semana) " , style = MaterialTheme.typography.bodyMedium)
 
-                    Text("Tarjeta de estadística 2" , style = MaterialTheme.typography.titleMedium)
-                    Text("valor:  " , style = MaterialTheme.typography.bodyMedium)
+                    Text("Reducción de Residuos" , style = MaterialTheme.typography.titleMedium)
+                    Text("valor: 10€ (en comparación con el mes pasado) " , style = MaterialTheme.typography.bodyMedium)
 
-                    Text("Tarjeta de estadística 3" , style = MaterialTheme.typography.titleMedium)
-                    Text("valor:  " , style = MaterialTheme.typography.bodyMedium)
+                    Text("Huella de Carbono" , style = MaterialTheme.typography.titleMedium)
+                    Text("valor: 300 kg CO2 (este mes) " , style = MaterialTheme.typography.bodyMedium)
 
                 }
             }
@@ -94,8 +132,9 @@ fun PersonalWasteStatisticsScreen(modifier: Modifier = Modifier) {
 
         Card(modifier = Modifier
             .fillMaxWidth()
-            .padding(8.dp)
-        )    {
+            .height(200.dp)
+            .padding(8.dp),
+            colors = CardDefaults.cardColors(containerColor = suave))   {
             Column(modifier = Modifier.padding(16.dp)) {
                 Text("Números de Descargas" , style = MaterialTheme.typography.titleMedium)
                 Text("valor: 10,000+ " , style = MaterialTheme.typography.bodyMedium)
