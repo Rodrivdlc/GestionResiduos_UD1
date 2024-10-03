@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="Theme.GestionResiduos_UD1" parent="android:Theme.Material.Light.NoActionBar" />
+    <!-- Remove the duplicate theme definition -->
 </resources>

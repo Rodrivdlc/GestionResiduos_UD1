@@ -13,7 +13,7 @@
         android:id="@+id/point1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="200dp"
+        android:layout_marginStart="200dp"
         android:layout_marginTop="500dp"
         android:background="@drawable/ic_point" />
 
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/ic_point"
         android:layout_marginTop="200dp"
-        android:layout_marginLeft="160dp" />
+        android:layout_marginStart="160dp" />
 
     <ImageButton
         android:id="@+id/point3"

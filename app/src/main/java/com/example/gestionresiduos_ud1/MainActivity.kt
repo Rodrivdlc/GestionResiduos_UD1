@@ -1,8 +1,9 @@
 package com.example.gestionresiduos_ud1
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import android.widget.ImageButton
+import androidx.activity.ComponentActivity
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,6 +21,11 @@ class MainActivity : ComponentActivity() {
         )
 
         val puntosRecogida = PuntosRecogida(this)
-        puntosRecogida.setupPoints(points)
+        puntosRecogida.setupPoints(points) { selectedPoint ->
+            val resultIntent = Intent()
+            resultIntent.putExtra(AddReminderActivity.EXTRA_PICKUP_POINT, selectedPoint)
+            setResult(RESULT_OK, resultIntent)
+            finish()
+        }
     }
 }

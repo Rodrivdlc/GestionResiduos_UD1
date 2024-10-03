@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/descriptionEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descripción" />
+
+    <Button
+        android:id="@+id/startTimeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hora de inicio"
+        android:layout_below="@id/descriptionEditText"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/endTimeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hora de fin"
+        android:layout_below="@id/startTimeButton"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/pickupPointButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Elegir Punto de Recogida"
+        android:layout_below="@id/endTimeButton"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        android:layout_below="@id/pickupPointButton"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Volver"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp" />
+</RelativeLayout>

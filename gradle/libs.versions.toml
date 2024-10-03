@@ -12,6 +12,7 @@ playServicesMaps = "19.0.0"
 constraintlayout = "2.1.4"
 uiViewbinding = "1.7.2"
 material = "1.12.0"
+filamentAndroid = "1.17.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -32,6 +33,7 @@ play-services-maps = { group = "com.google.android.gms", name = "play-services-m
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-ui-viewbinding = { group = "androidx.compose.ui", name = "ui-viewbinding", version.ref = "uiViewbinding" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+filament-android = { group = "com.google.ar.sceneform", name = "filament-android", version.ref = "filamentAndroid" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
