@@ -1,0 +1,44 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/mapImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/mapa" />
+
+    <ImageButton
+        android:id="@+id/point1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="500dp"
+        android:background="@drawable/ic_point" />
+
+    <ImageButton
+        android:id="@+id/point2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_point"
+        android:layout_marginTop="200dp"
+        android:layout_marginStart="160dp" />
+
+    <ImageButton
+        android:id="@+id/point3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_point"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="300dp" />
+
+<TextView
+    android:id="@+id/textView2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Puntos de reciclaje"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="10dp" />
+
+</RelativeLayout>
