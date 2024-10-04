@@ -1,5 +1,12 @@
 # Gestión de Residuos - App
 
+## Participantes
+- Hugo SANCHEZ
+- Jose Antonio OYONO
+- Jose Daniel MARTIN
+- Daniel Andres MORENO REY
+- Rodrigo ROJAS REDONDO
+
 ## Enlace al Repositorio
 Repositorio en GitHub: https://github.com/Rodrivdlc/GestionResiduos_UD1
 
