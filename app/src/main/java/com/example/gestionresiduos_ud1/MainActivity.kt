@@ -43,42 +43,11 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun App() {
-    var currentScreen by remember { mutableStateOf(Screen.PersonalWasteStatistics) }
-
-    Scaffold(modifier = Modifier
-        .fillMaxSize()
-        .background(black),
-        topBar = {
-            TopAppBar(
-            title = {
-                Box(
-                modifier = Modifier.fillMaxWidth(),
-                contentAlignment = Alignment.Center,
-            ) {
-                Text("Estadísticas")
-            }
-                 },
-            colors = TopAppBarDefaults.smallTopAppBarColors(
-                containerColor = black,
-                titleContentColor = suave
-            )
-        ) }) { innerPadding ->
-        Card (modifier = Modifier.padding(innerPadding),
-            colors = CardDefaults.cardColors(
-                contentColor = suave)
-            ) {
-            Spacer(modifier = Modifier.height(16.dp))
-            when (currentScreen) {
-                Screen.PersonalWasteStatistics -> PersonalWasteStatisticsScreen(
-                    modifier = Modifier.padding(innerPadding)
-                )
-            }
-        }
+    Scaffold(
+        // ...
+    ) { innerPadding ->
+        PersonalWasteStatisticsScreen(modifier = Modifier.padding(innerPadding))
     }
-}
-
-enum class Screen {
-    PersonalWasteStatistics,
 }
 
 
