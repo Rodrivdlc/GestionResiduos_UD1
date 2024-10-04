@@ -17,10 +17,6 @@
             android:exported="true"
             android:label="Menu"
             android:theme="@style/Theme.GestionResiduos_UD1">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity
@@ -49,6 +45,17 @@
             android:exported="true"
             android:label="Mostrar Recordatorios"
             android:theme="@style/Theme.GestionResiduos_UD1">
+        </activity>
+
+        <activity
+            android:name=".MainComposeActivity"
+            android:exported="true"
+            android:label="Pantalla Inicial"
+            android:theme="@style/Theme.GestionResiduos_UD1">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
     </application>
