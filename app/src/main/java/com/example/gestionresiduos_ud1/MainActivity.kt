@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -11,8 +12,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -23,12 +22,17 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
+import com.example.gestionresiduos_ud1.Periods.MonthlyStats
+import com.example.gestionresiduos_ud1.Periods.WeeklyStats
+import com.example.gestionresiduos_ud1.Periods.YearlyStats
+import com.example.gestionresiduos_ud1.Statistics.PersonalWasteStatisticsScreen
 
 
 val GreenNeutral = Color(0xFFB7E061)
@@ -83,72 +87,7 @@ enum class Screen {
 }
 
 
-@Composable
-fun PersonalWasteStatisticsScreen(modifier: Modifier = Modifier) {
 
-
-    Column(modifier = Modifier
-        .padding(horizontal = 16.dp, vertical = 16.dp)
-        .background(GreenNeutral)) {
-        Text("Estadísticas Personales", style = MaterialTheme.typography.headlineMedium)
-
-
-        Card(modifier = Modifier
-            .fillMaxWidth()
-            .height(200.dp)
-            .padding(8.dp),
-            colors = CardDefaults.cardColors(containerColor = suave)) {
-
-            // Aquí puedes usar una biblioteca de gráficos como MPAndroidChart para crear un gráfico real
-
-            Text("Gráfico de barras de residuos por tipo" , modifier = Modifier.padding(16.dp))
-
-        }
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-            Card(modifier = Modifier
-                .fillMaxWidth()
-                .height(200.dp)
-                .padding(8.dp),
-                colors = CardDefaults.cardColors(containerColor = suave))   {
-                Column(modifier = Modifier.padding(16.dp)) {
-
-                    Text("Residuos Reciclados" , style = MaterialTheme.typography.titleMedium)
-                    Text("valor: 25kg (esta semana) " , style = MaterialTheme.typography.bodyMedium)
-
-                    Text("Reducción de Residuos" , style = MaterialTheme.typography.titleMedium)
-                    Text("valor: 10€ (en comparación con el mes pasado) " , style = MaterialTheme.typography.bodyMedium)
-
-                    Text("Huella de Carbono" , style = MaterialTheme.typography.titleMedium)
-                    Text("valor: 300 kg CO2 (este mes) " , style = MaterialTheme.typography.bodyMedium)
-
-                }
-            }
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Text("Estadísticas de la Aplicación", style = MaterialTheme.typography.headlineMedium)
-
-        Card(modifier = Modifier
-            .fillMaxWidth()
-            .height(200.dp)
-            .padding(8.dp),
-            colors = CardDefaults.cardColors(containerColor = suave))   {
-            Column(modifier = Modifier.padding(16.dp)) {
-                Text("Números de Descargas" , style = MaterialTheme.typography.titleMedium)
-                Text("valor: 10,000+ " , style = MaterialTheme.typography.bodyMedium)
-
-                Text("Usuarios Activos Mensuales" , style = MaterialTheme.typography.titleMedium)
-                Text("valor: 5,000+ " , style = MaterialTheme.typography.bodyMedium)
-
-                Text("Incremento en la Tasa de Reciclaje" , style = MaterialTheme.typography.titleMedium)
-                Text("valor: 15% " , style = MaterialTheme.typography.bodyMedium)
-
-            }
-        }
-    }
-}
 
 
 
