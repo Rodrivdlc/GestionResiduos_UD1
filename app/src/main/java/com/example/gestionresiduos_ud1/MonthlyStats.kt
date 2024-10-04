@@ -55,8 +55,7 @@ fun MonthlyStats(modifier: Modifier = Modifier) {
         colors = CardDefaults.cardColors(contentColor = black)
     ) {
         Column(modifier = Modifier
-            .padding(16.dp)
-            .verticalScroll(rememberScrollState())) {
+            .padding(16.dp)) {
             Text("Números de Descargas este mes", style = MaterialTheme.typography.titleMedium)
             Text("valor: 50,000", style = MaterialTheme.typography.bodyMedium)
             Text("Máximo de usuarios activos de manera simultanea este mes", style = MaterialTheme.typography.titleMedium)
