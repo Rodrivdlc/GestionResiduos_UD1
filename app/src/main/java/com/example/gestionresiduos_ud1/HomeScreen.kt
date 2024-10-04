@@ -4,7 +4,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.material3.TextField
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -17,7 +18,8 @@ import java.util.*
 
 @Composable
 fun HomeScreen(navController: NavController) {
-    val greeting = getGreetingMessage()
+    var name by remember { mutableStateOf("") }
+    val greeting = getGreetingMessage(name)
 
     // Estructura principal de la pantalla de inicio
     Column(
@@ -27,6 +29,16 @@ fun HomeScreen(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+        // Campo de texto para ingresar el nombre
+        TextField(
+            value = name,
+            onValueChange = { name = it },
+            label = { Text("Ingresa tu nombre") },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 16.dp)
+        )
+
         // Saludo personalizado
         Text(
             text = greeting,
@@ -66,13 +78,14 @@ fun HomeScreen(navController: NavController) {
 }
 
 @Composable
-fun getGreetingMessage(): String {
+fun getGreetingMessage(name: String): String {
     val currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
-    return when (currentHour) {
-        in 6..11 -> "¡Buenos días!"
-        in 12..17 -> "¡Buenas tardes!"
-        else -> "¡Buenas noches!"
+    val greeting = when (currentHour) {
+        in 6..11 -> "¡Buenos días"
+        in 12..17 -> "¡Buenas tardes"
+        else -> "¡Buenas noches"
     }
+    return if (name.isNotEmpty()) "$greeting, $name!" else "$greeting!"
 }
 
 @Preview(showBackground = true)
@@ -80,4 +93,3 @@ fun getGreetingMessage(): String {
 fun HomeScreenPreview() {
     HomeScreen(navController = rememberNavController())
 }
-
