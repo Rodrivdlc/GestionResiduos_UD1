@@ -1,10 +1,7 @@
 package com.example.gestionresiduos_ud1
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
-import androidx.compose.material3.Button
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -17,11 +14,9 @@ import androidx.navigation.compose.rememberNavController
 import java.util.*
 
 @Composable
-fun HomeScreen(navController: NavController) {
+fun NameInputScreen(navController: NavController) {
     var name by remember { mutableStateOf("") }
-    val greeting = getGreetingMessage(name)
 
-    // Estructura principal de la pantalla de inicio
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -29,7 +24,6 @@ fun HomeScreen(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        // Campo de texto para ingresar el nombre
         TextField(
             value = name,
             onValueChange = { name = it },
@@ -39,7 +33,28 @@ fun HomeScreen(navController: NavController) {
                 .padding(bottom = 16.dp)
         )
 
-        // Saludo personalizado
+        Button(
+            onClick = {
+                navController.navigate("menu_screen/$name")
+            },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(text = "Continuar")
+        }
+    }
+}
+
+@Composable
+fun MenuScreen(navController: NavController, name: String) {
+    val greeting = getGreetingMessage(name)
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
         Text(
             text = greeting,
             fontSize = 28.sp,
@@ -47,7 +62,6 @@ fun HomeScreen(navController: NavController) {
             modifier = Modifier.padding(bottom = 32.dp)
         )
 
-        // Botón para ir a la sección de calendario
         Button(
             onClick = { navController.navigate("calendar_screen") },
             modifier = Modifier
@@ -57,7 +71,6 @@ fun HomeScreen(navController: NavController) {
             Text(text = "Ver calendario de recolección")
         }
 
-        // Botón para ir a la sección de mapa
         Button(
             onClick = { navController.navigate("recycling_map_screen") },
             modifier = Modifier
@@ -67,7 +80,6 @@ fun HomeScreen(navController: NavController) {
             Text(text = "Ver puntos de reciclaje")
         }
 
-        // Botón para ir a la sección de estadísticas personales
         Button(
             onClick = { navController.navigate("statistics_screen") },
             modifier = Modifier.fillMaxWidth()
@@ -90,6 +102,12 @@ fun getGreetingMessage(name: String): String {
 
 @Preview(showBackground = true)
 @Composable
-fun HomeScreenPreview() {
-    HomeScreen(navController = rememberNavController())
+fun NameInputScreenPreview() {
+    NameInputScreen(navController = rememberNavController())
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MenuScreenPreview() {
+    MenuScreen(navController = rememberNavController(), name = "Usuario")
 }
