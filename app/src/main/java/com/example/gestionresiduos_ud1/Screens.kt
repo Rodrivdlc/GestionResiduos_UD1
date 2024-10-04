@@ -81,7 +81,7 @@ fun MenuScreen(navController: NavController, name: String) {
             onClick = { navController.navigate("statistics_screen") },
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text(text = "Ver estadísticas personales")
+            Text(text = "Ver estadísticas")
         }
     }
 }
