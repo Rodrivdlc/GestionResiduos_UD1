@@ -14,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.gestionresiduos_ud1.Grafico.SimpleBarChart
 import com.example.gestionresiduos_ud1.ui.theme.black
 
 
@@ -29,6 +30,11 @@ fun WeeklyStats(modifier: Modifier = Modifier) {
         Text("Gráfico de barras de residuos (semana)", modifier = Modifier.padding(
             16.dp
         ))
+
+        SimpleBarChart(
+            data = listOf(5f, 2f, 10f),
+            labels = listOf("Reciclados", "Reducción", "Huella")
+        )
     }
     Spacer (modifier = Modifier.height(16.dp))
 
@@ -82,3 +88,5 @@ fun WeeklyStats(modifier: Modifier = Modifier) {
         }
     }
 }
+
+

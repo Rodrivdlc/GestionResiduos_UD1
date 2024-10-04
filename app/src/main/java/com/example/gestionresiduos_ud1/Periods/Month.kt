@@ -14,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.gestionresiduos_ud1.Grafico.SimpleBarChart
 import com.example.gestionresiduos_ud1.ui.theme.black
 
 
@@ -27,6 +28,10 @@ fun MonthlyStats(modifier: Modifier = Modifier) {
         colors = CardDefaults.cardColors(contentColor = black)
     ) {
         Text("Gráfico de barras de residuos (mes)", modifier = Modifier.padding(16.dp))
+        SimpleBarChart(
+            data = listOf(20f, 8f, 40f),
+            labels = listOf("Reciclados", "Reducción", "Huella")
+        )
     }
     Spacer (modifier = Modifier.height(16.dp))
 
@@ -79,3 +84,5 @@ fun MonthlyStats(modifier: Modifier = Modifier) {
         }
     }
 }
+
+

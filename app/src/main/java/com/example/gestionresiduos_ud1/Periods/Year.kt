@@ -14,11 +14,20 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.gestionresiduos_ud1.Grafico.SimpleBarChart
 import com.example.gestionresiduos_ud1.ui.theme.black
+
+
+
+
 
 
 @Composable
 fun YearlyStats(modifier: Modifier = Modifier) {
+
+
+    val labels = listOf("Reciclados", "Reducción", "Huella")
+
     Card(
         modifier = modifier
             .fillMaxWidth()
@@ -27,6 +36,12 @@ fun YearlyStats(modifier: Modifier = Modifier) {
         colors = CardDefaults.cardColors(contentColor = black)
     ) {
         Text("Gráfico de barras de residuos (año)", modifier = Modifier.padding(16.dp))
+
+        SimpleBarChart(
+            data = listOf(240f, 15f, 480f),
+            labels = listOf("Reciclados", "Reducción", "Huella")
+        )
+
     }
     Spacer (modifier = Modifier.height(16.dp))
 
@@ -37,7 +52,8 @@ fun YearlyStats(modifier: Modifier = Modifier) {
         .height(200.dp)
         .padding(8.dp),
         colors = CardDefaults.cardColors(contentColor = black)) {
-        Column(modifier = Modifier.padding(16.dp)
+        Column(modifier = Modifier
+            .padding(16.dp)
             .verticalScroll(rememberScrollState())) {
 
             Text("Residuos Reciclados", style = MaterialTheme.typography.titleMedium)
@@ -79,3 +95,7 @@ fun YearlyStats(modifier: Modifier = Modifier) {
         }
     }
 }
+
+
+
+
