@@ -48,6 +48,8 @@ fun WeeklyStats(modifier: Modifier = Modifier) {
         Column(modifier = Modifier.padding(16.dp).verticalScroll(rememberScrollState())) {
             Text("Números de Descargas esta semana", style = MaterialTheme.typography.titleMedium)
             Text("valor: 20000", style = MaterialTheme.typography.bodyMedium)
+            Text("Máximo de usuarios activos de forma simultanea esta semana", style = MaterialTheme.typography.titleMedium)
+            Text("valor: 10000", style = MaterialTheme.typography.bodyMedium)
             Text("Incremento en la Tasa de Reciclaje esta semana", style = MaterialTheme.typography.titleMedium)
             Text("valor: 10%", style = MaterialTheme.typography.bodyMedium)
         }
