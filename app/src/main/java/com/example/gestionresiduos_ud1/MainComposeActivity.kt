@@ -8,6 +8,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.gestionresiduos_ud1.Statistics.PersonalWasteStatisticsScreen
 
 class MainComposeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +20,9 @@ class MainComposeActivity : ComponentActivity() {
                 composable("menu_screen/{name}") { backStackEntry ->
                     val name = backStackEntry.arguments?.getString("name") ?: "Usuario"
                     MenuScreen(navController, name)
+                }
+                composable("statistics_screen") {
+                    PersonalWasteStatisticsScreen()
                 }
             }
         }
