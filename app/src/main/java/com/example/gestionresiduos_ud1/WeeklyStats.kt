@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.gestionresiduos_ud1.Grafico.SimpleBarChart
 import com.example.gestionresiduos_ud1.ui.theme.black
+import com.example.gestionresiduos_ud1.ui.theme.suave
 
 @Composable
 fun WeeklyStats(modifier: Modifier = Modifier) {
@@ -37,7 +38,9 @@ fun WeeklyStats(modifier: Modifier = Modifier) {
         }
     }
     Spacer(modifier = Modifier.height(16.dp))
-    Text("Estadísticas de la Aplicación", style = MaterialTheme.typography.headlineSmall)
+    Text("Estadísticas de la Aplicación",
+        style = MaterialTheme.typography.headlineSmall
+        ,color = suave)
     Card(
         modifier = Modifier.fillMaxWidth().height(200.dp).padding(8.dp),
         colors = CardDefaults.cardColors(contentColor = black)
