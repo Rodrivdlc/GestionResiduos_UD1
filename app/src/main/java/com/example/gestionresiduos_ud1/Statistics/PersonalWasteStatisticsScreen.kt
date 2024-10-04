@@ -5,6 +5,8 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.MaterialTheme
@@ -16,10 +18,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.gestionresiduos_ud1.GreenNeutral
 import com.example.gestionresiduos_ud1.Periods.MonthlyStats
 import com.example.gestionresiduos_ud1.Periods.WeeklyStats
 import com.example.gestionresiduos_ud1.Periods.YearlyStats
+import com.example.gestionresiduos_ud1.ui.theme.black
 
 @Composable
 fun PersonalWasteStatisticsScreen(modifier: Modifier = Modifier) {
@@ -29,9 +31,12 @@ fun PersonalWasteStatisticsScreen(modifier: Modifier = Modifier) {
     var expanded by remember { mutableStateOf(false) }
 
 
-    Column(modifier = Modifier
-        .padding(horizontal = 16.dp, vertical = 16.dp)
-        .background(GreenNeutral)) {
+    Card(modifier = Modifier
+        .padding(horizontal = 16.dp, vertical = 16.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = black
+        )
+        ) {
         Text("Estadísticas Personales", style = MaterialTheme.typography.headlineSmall)
 
 
